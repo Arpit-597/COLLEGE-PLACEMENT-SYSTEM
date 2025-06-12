@@ -1,0 +1,80 @@
+<%- include('../layouts/navbar.ejs') %>
+    <!-- This is used to include another ejs file content in another file -->
+
+    <%- include('../layouts/sidebar.ejs') %>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Company Page</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">Company Page</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            Company Details
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <h2>COMPANY NAME: <%= view.name %>
+                            </h2>
+                            <p>
+                                <strong>Email: </strong>
+                                <%= view.email %>
+                            </p>
+                            <p>
+                                <strong>Phone: </strong>
+                                <%= view.phone %>
+                            </p>
+                            <p>
+                                <strong>Address: </strong>
+                                <%= view.address %>
+                            </p>
+                            <p>
+                                <strong>Website: </strong>
+                                <a href="<%= view.resume %>" target="_blank" rel="noopener noreferrer"
+                                    style="text-decoration: none;">
+                                    <button
+                                        style="padding: 6px 12px; border: none; background-color: #007BFF; color: white; border-radius: 4px; cursor: pointer;">
+                                        View Company Website
+                                    </button>
+                                </a>
+                            </p>
+                            <p>
+                                <strong>Image: </strong>
+                                <br>
+                                <img src="<%= view.image.url %>" alt="" width="200">
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                        <a href="/companyEdit/<%= view._id %>" class="btn btn-success">Edit</a>
+                        <a href="/companyDelete/<%= view._id %>" class="btn btn-danger">Delete</a>
+                        <a href="/company/display" class="btn btn-dark">Back To List</a>
+                      
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <%- include('../layouts/footer.ejs') %>

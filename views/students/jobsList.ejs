@@ -1,0 +1,110 @@
+<%- include('../layouts/navbar.ejs') %>
+<!-- This is used to include another ejs file content in another file -->
+
+<%- include('../layouts/sidebar.ejs') %>
+
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+          <h1 class="m-0 text-dark">Available Jobs</h1>
+        </div>
+        <!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="#">Home</a></li>
+            <li class="breadcrumb-item active">Openings</li>
+          </ol>
+        </div>
+        <!-- /.col -->
+      </div>
+      <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <div class="content">
+    <div class="container-fluid">
+      <% if(error.length>0){ %>
+      <div class="alert alert-danger">
+        <!-- To print -->
+        <%= error %>
+      </div>
+      <% } %> <% if(success.length>0){ %>
+      <div class="alert alert-success">
+        <!-- To print -->
+        <%= success %>
+      </div>
+      <% } %>
+      <div class="row">
+        <% jobs.forEach((job)=>{ %>
+        <div class="col-md-4">
+          <div class="card mb-3 shadow">
+            <% if(role === "student"){ %>
+            <div class="card-header bg-primary text-white">
+              <h5><%= job.title %></h5>
+            </div>
+            <% }else{ %>
+            <div class="card-header bg-success text-white">
+              <h5><%= job.title %></h5>
+            </div>
+            <% } %>
+            <div class="card-body">
+              <p>
+                <strong>Company:</strong>
+                <%= job.companyId?.name || "N/A" %>
+              </p>
+              <p>
+                <strong>Location:</strong>
+                <%= job.location %>
+              </p>
+              <p>
+                <strong>Salary:</strong>
+                <%= job.salary %>
+              </p>
+              <p>
+                <strong>Department:</strong>
+                <%= job.department %>
+              </p>
+              <p>
+                <strong>Min 12th %:</strong>
+                <%= job.requirements?.min12Percent || "-" %>
+              </p>
+              <p>
+                <strong>Min CGPA:</strong>
+                <%= job.requirements?.minCGPA || "-" %>
+              </p>
+              <p>
+                <strong>Max Backlogs:</strong>
+                <%= job.requirements?.maxBacklogs || "0" %>
+              </p>
+              <p>
+                <strong>Skills Required:</strong>
+                <%= job.requirements?.skillsRequired?.join(", ") %>
+              </p>
+
+              <% if(role === "student"){ %>
+              <!-- Apply Button -->
+              <form action=" /student/apply/<%=job._id %>" method="POST">
+                <button class="btn btn-success btn-sm w-100">Apply</button>
+              </form>
+              <% } %>
+            </div>
+          </div>
+        </div>
+        <!-- col-md-4 -->
+        <% }) %>
+      </div>
+      <!--row end-->
+    </div>
+    <!-- /.container-fluid -->
+  </div>
+  <!-- /.content -->
+</div>
+<!-- /.content-wrapper -->
+<%- include('../layouts/footer.ejs') %>

@@ -1,0 +1,32 @@
+<script>
+    // What is map() in Javascript?
+    // map() ek array method hai jo:
+
+    // 1. ek array leta hai
+    // 2. ek array ke har element par ek function apply krta hai 
+    // 3. fir ek naya array return krta hai jisme wo transformed (badla hua) elements hote hai
+
+    // const numbers = [1, 2, 3, 4]
+    // const doubled = numbers.map(function (num) {
+    //     return num * 2
+    // })
+    // console.log(doubled)  // Output: [2,4,6,8]
+
+    // const numbers = [1, 2, 3, 4]
+    // const doubled = numbers.map(num => num * 2)
+    // console.log(doubled)  // Output: [2,4,6,8]
+
+    // const names = [" Raj", " Priya ", " Amit "]
+    // const trimmedNamed = names.map(name => name.trim())
+    // console.log(trimmedNamed) // Output - ["Raj","Priya","Amit"]
+
+    const allowedBranches = "CS, IT , Mechanical"
+    const Branches = allowedBranches?.split(",")
+    // .split(",") ek string ko comma , se alag alag hisse (array) mai tod deta hai
+    // .map((b)=> b.trim()
+    console.log(Branches) // Output:["CS"," IT "," Mechanical"]
+
+    const arr = [" CS"," IT", " Mechanical  "]
+    const trimmedNamed = arr.map((b)=>b.trim())
+    console.log(trimmedNamed)
+</script>

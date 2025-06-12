@@ -1,0 +1,73 @@
+<%- include('../layouts/navbar.ejs') %>
+    <!-- This is used to include another ejs file content in another file -->
+
+    <%- include('../layouts/sidebar.ejs') %>
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            <div class="content-header">
+                <div class="container-fluid">
+                    <div class="row mb-2">
+                        <div class="col-sm-6">
+                            <h1 class="m-0 text-dark">Hod Display</h1>
+                        </div><!-- /.col -->
+                        <div class="col-sm-6">
+                            <ol class="breadcrumb float-sm-right">
+                                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                                <li class="breadcrumb-item active">HOD Page</li>
+                            </ol>
+                        </div><!-- /.col -->
+                    </div><!-- /.row -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content-header -->
+
+            <!-- Main content -->
+            <div class="content">
+                <div class="container-fluid">
+                    <div class="card">
+                        <div class="card-header">
+                            HOD Details
+                        </div>
+                        <!-- /.card-header -->
+                        <div class="card-body">
+                            <h2>HOD NAME: <%= view.name %>
+                            </h2>
+                            <p>
+                                <strong>Email: </strong>
+                                <%= view.email %>
+                            </p>
+                            <p>
+                                <strong>Phone: </strong>
+                                <%= view.phone %>
+                            </p>
+                            <p>
+                                <strong>Gender: </strong>
+                                <%= view.gender %>
+                            </p>
+                            <p>
+                                <strong>Department: </strong>
+                                <%= view.department %>
+                            </p>
+                            <p>
+                                <strong>Image: </strong>
+                                <br>
+                                <img src="<%= view.image.url %>" alt="" width="200">
+                            </p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="/hodEdit/<%= view._id %>" class="btn btn-success">Edit</a>
+                            <a href="/hodDelete/<%= view._id %>" class="btn btn-danger">Delete</a>
+                            <a href="/hod/display" class="btn btn-dark">Back To List</a>
+                        </div>
+                        <!-- /.card-body -->
+                    </div>
+                    <!-- /.card -->
+                </div><!-- /.container-fluid -->
+            </div>
+            <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+        <%- include('../layouts/footer.ejs') %>
